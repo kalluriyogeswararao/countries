@@ -169,6 +169,15 @@ class App extends Component {
 
   onRenderVisitedList = () => {
     const {visitedList} = this.state
+    visitedList.sort((a, b) => {
+      if (a.name.toLowerCase() < b.name.toLowerCase()) {
+        return -1
+      }
+      if (a.name.toLowerCase() > b.name.toLowerCase()) {
+        return 1
+      }
+      return 0
+    })
     if (visitedList.length > 0) {
       return this.onRenderVisitedCountryList(visitedList)
     }
